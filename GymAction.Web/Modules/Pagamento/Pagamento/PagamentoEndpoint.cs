@@ -8,6 +8,10 @@ namespace GymAction.Pagamento.Endpoints
     using Microsoft.AspNetCore.Mvc;
     using MyRepository = Repositories.PagamentoRepository;
     using MyRow = Entities.PagamentoRow;
+    using Serenity.Reporting;
+    using Serenity.Web;
+    using System;
+
 
     [Route("Services/Pagamento/Pagamento/[action]")]
     [ConnectionKey(typeof(MyRow)), ServiceAuthorize(typeof(MyRow))]
@@ -41,6 +45,14 @@ namespace GymAction.Pagamento.Endpoints
         public ListResponse<MyRow> List(IDbConnection connection, ListRequest request)
         {
             return new MyRepository().List(connection, request);
+        }
+        public FileContentResult ListExcel(IDbConnection connection, ListRequest request)
+        {
+            var data = List(connection, request).Entities;
+            var report = new DynamicDataReport(data, request.IncludeColumns, typeof(Columns.PagamentoColumns));
+            var bytes = new ReportRepository().Render(report);
+            return ExcelContentResult.Create(bytes, "Pagamento_" +
+                DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xlsx");
         }
     }
 }

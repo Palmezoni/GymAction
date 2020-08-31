@@ -8,6 +8,10 @@ namespace GymAction.Fisioterapeuta.Endpoints
     using Microsoft.AspNetCore.Mvc;
     using MyRepository = Repositories.FisioterapeutaRepository;
     using MyRow = Entities.FisioterapeutaRow;
+    using Serenity.Reporting;
+    using Serenity.Web;
+    using System;
+
 
     [Route("Services/Fisioterapeuta/Fisioterapeuta/[action]")]
     [ConnectionKey(typeof(MyRow)), ServiceAuthorize(typeof(MyRow))]
@@ -41,6 +45,14 @@ namespace GymAction.Fisioterapeuta.Endpoints
         public ListResponse<MyRow> List(IDbConnection connection, ListRequest request)
         {
             return new MyRepository().List(connection, request);
+        }
+        public FileContentResult ListExcel(IDbConnection connection, ListRequest request)
+        {
+            var data = List(connection, request).Entities;
+            var report = new DynamicDataReport(data, request.IncludeColumns, typeof(Columns.FisioterapeutaColumns));
+            var bytes = new ReportRepository().Render(report);
+            return ExcelContentResult.Create(bytes, "Fisioterapeuta_" +
+                DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xlsx");
         }
     }
 }

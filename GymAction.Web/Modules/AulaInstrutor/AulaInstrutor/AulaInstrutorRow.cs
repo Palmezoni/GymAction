@@ -13,7 +13,7 @@ namespace GymAction.AulaInstrutor.Entities
     [DisplayName("Aulas vs Instrutores"), InstanceName("Aula vs Instrutor")]
     [ReadPermission("AulaInstrutor:General")]
     [ModifyPermission("AulaInstrutor:General")]
-    public sealed class AulaInstrutorRow : Row, IIdRow, INameRow
+    public sealed class AulaInstrutorRow : Row, IIdRow
     {
         [DisplayName("Cod Registro"), Column("COD_REGISTRO"), Identity]
         public Int32? CodRegistro
@@ -108,7 +108,7 @@ namespace GymAction.AulaInstrutor.Entities
             set { Fields.DesSala[this] = value; }
         }
 
-        [DisplayName("Cod Aula Des Aula"), Expression("jCodAula.[DES_AULA]"), QuickSearch, NotNull]
+        [DisplayName("Cod Aula Des Aula"), Expression("jCodAula.[DES_AULA]"), QuickSearch]
         public String CodAulaDesAula
         {
             get { return Fields.CodAulaDesAula[this]; }
@@ -129,7 +129,7 @@ namespace GymAction.AulaInstrutor.Entities
             set { Fields.CodAulaIdfAtivo[this] = value; }
         }
 
-        [DisplayName("Cod Instrutor Des Nome"), Expression("jCodInstrutor.[DES_NOME]"), QuickSearch, NotNull]
+        [DisplayName("Cod Instrutor Des Nome"), Expression("jCodInstrutor.[DES_NOME]"), QuickSearch]
         public String CodInstrutorDesNome
         {
             get { return Fields.CodInstrutorDesNome[this]; }
@@ -167,11 +167,6 @@ namespace GymAction.AulaInstrutor.Entities
         IIdField IIdRow.IdField
         {
             get { return Fields.CodRegistro; }
-        }
-
-        StringField INameRow.NameField
-        {
-            get { return Fields.CodAulaDesAula; }
         }
 
         public static readonly RowFields Fields = new RowFields().Init();

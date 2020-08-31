@@ -8,6 +8,10 @@ namespace GymAction.Ferias.Endpoints
     using Microsoft.AspNetCore.Mvc;
     using MyRepository = Repositories.FeriasRepository;
     using MyRow = Entities.FeriasRow;
+    using Serenity.Reporting;
+    using Serenity.Web;
+    using System;
+
 
     [Route("Services/Ferias/Ferias/[action]")]
     [ConnectionKey(typeof(MyRow)), ServiceAuthorize(typeof(MyRow))]
@@ -42,5 +46,14 @@ namespace GymAction.Ferias.Endpoints
         {
             return new MyRepository().List(connection, request);
         }
+        public FileContentResult ListExcel(IDbConnection connection, ListRequest request)
+        {
+            var data = List(connection, request).Entities;
+            var report = new DynamicDataReport(data, request.IncludeColumns, typeof(Columns.FeriasColumns));
+            var bytes = new ReportRepository().Render(report);
+            return ExcelContentResult.Create(bytes, "Ferias_" +
+                DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xlsx");
+        }
+
     }
 }

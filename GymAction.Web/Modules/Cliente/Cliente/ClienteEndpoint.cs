@@ -3,8 +3,8 @@ namespace GymAction.Cliente.Endpoints
 {
     using Serenity;
     using Serenity.Data;
-    using Serenity.Reporting;
     using Serenity.Services;
+    using Serenity.Reporting;
     using Serenity.Web;
     using System;
     using System.Data;

@@ -25,7 +25,6 @@
 
     export namespace AulaInstrutorRow {
         export const idProperty = 'CodRegistro';
-        export const nameProperty = 'CodAulaDesAula';
         export const localTextPrefix = 'AulaInstrutor.AulaInstrutor';
         export const deletePermission = 'AulaInstrutor:General';
         export const insertPermission = 'AulaInstrutor:General';

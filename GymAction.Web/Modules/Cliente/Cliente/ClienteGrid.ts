@@ -30,5 +30,6 @@ namespace GymAction.Cliente {
             }));
 
             return buttons;
+        }
     }
 }

@@ -13,5 +13,22 @@ namespace GymAction.ClientePlanoAula {
         constructor(container: JQuery) {
             super(container);
         }
+        getButtons() {
+            var buttons = super.getButtons();
+
+            buttons.push(GymAction.Common.ExcelExportHelper.createToolButton({
+                grid: this,
+                onViewSubmit: () => this.onViewSubmit(),
+                service: 'ClientePlanoAula/ClientePlanoAula/ListExcel',
+                separator: true
+            }));
+
+            buttons.push(GymAction.Common.PdfExportHelper.createToolButton({
+                grid: this,
+                onViewSubmit: () => this.onViewSubmit()
+            }));
+
+            return buttons;
+        }
     }
 }

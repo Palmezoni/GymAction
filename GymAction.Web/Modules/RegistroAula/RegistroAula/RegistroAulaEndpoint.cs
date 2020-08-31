@@ -8,6 +8,10 @@ namespace GymAction.RegistroAula.Endpoints
     using Microsoft.AspNetCore.Mvc;
     using MyRepository = Repositories.RegistroAulaRepository;
     using MyRow = Entities.RegistroAulaRow;
+    using Serenity.Reporting;
+    using Serenity.Web;
+    using System;
+
 
     [Route("Services/RegistroAula/RegistroAula/[action]")]
     [ConnectionKey(typeof(MyRow)), ServiceAuthorize(typeof(MyRow))]
@@ -41,6 +45,14 @@ namespace GymAction.RegistroAula.Endpoints
         public ListResponse<MyRow> List(IDbConnection connection, ListRequest request)
         {
             return new MyRepository().List(connection, request);
+        }
+        public FileContentResult ListExcel(IDbConnection connection, ListRequest request)
+        {
+            var data = List(connection, request).Entities;
+            var report = new DynamicDataReport(data, request.IncludeColumns, typeof(Columns.RegistroAulaColumns));
+            var bytes = new ReportRepository().Render(report);
+            return ExcelContentResult.Create(bytes, "RegistroAula_" +
+                DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xlsx");
         }
     }
 }

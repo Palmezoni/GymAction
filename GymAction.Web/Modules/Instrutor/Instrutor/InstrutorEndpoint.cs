@@ -8,6 +8,9 @@ namespace GymAction.Instrutor.Endpoints
     using Microsoft.AspNetCore.Mvc;
     using MyRepository = Repositories.InstrutorRepository;
     using MyRow = Entities.InstrutorRow;
+    using Serenity.Reporting;
+    using Serenity.Web;
+    using System;
 
     [Route("Services/Instrutor/Instrutor/[action]")]
     [ConnectionKey(typeof(MyRow)), ServiceAuthorize(typeof(MyRow))]
@@ -41,6 +44,14 @@ namespace GymAction.Instrutor.Endpoints
         public ListResponse<MyRow> List(IDbConnection connection, ListRequest request)
         {
             return new MyRepository().List(connection, request);
+        }
+        public FileContentResult ListExcel(IDbConnection connection, ListRequest request)
+        {
+            var data = List(connection, request).Entities;
+            var report = new DynamicDataReport(data, request.IncludeColumns, typeof(Columns.InstrutorColumns));
+            var bytes = new ReportRepository().Render(report);
+            return ExcelContentResult.Create(bytes, "Instrutor_" +
+                DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xlsx");
         }
     }
 }

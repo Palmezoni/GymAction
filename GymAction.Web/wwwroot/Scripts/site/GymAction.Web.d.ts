@@ -430,6 +430,392 @@ declare namespace GymAction.Administration {
         }
     }
 }
+declare namespace GymAction.Aula {
+}
+declare namespace GymAction.Aula {
+    interface AulaForm {
+        DesAula: Serenity.StringEditor;
+        IdfTipoAtividade: Serenity.EnumEditor;
+        IdfAtivo: Serenity.BooleanEditor;
+    }
+    class AulaForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace GymAction.Aula {
+    interface AulaRow {
+        CodAula?: number;
+        DesAula?: string;
+        IdfTipoAtividade?: number;
+        IdfAtivo?: boolean;
+    }
+    namespace AulaRow {
+        const idProperty = "CodAula";
+        const nameProperty = "DesAula";
+        const localTextPrefix = "Aula.Aula";
+        const lookupKey = "Aula.Aula";
+        function getLookup(): Q.Lookup<AulaRow>;
+        const deletePermission = "Aula:General";
+        const insertPermission = "Aula:General";
+        const readPermission = "Aula:General";
+        const updatePermission = "Aula:General";
+        const enum Fields {
+            CodAula = "CodAula",
+            DesAula = "DesAula",
+            IdfTipoAtividade = "IdfTipoAtividade",
+            IdfAtivo = "IdfAtivo"
+        }
+    }
+}
+declare namespace GymAction.Aula {
+    namespace AulaService {
+        const baseUrl = "Aula/Aula";
+        function Create(request: Serenity.SaveRequest<AulaRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<AulaRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AulaRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AulaRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Aula/Aula/Create",
+            Update = "Aula/Aula/Update",
+            Delete = "Aula/Aula/Delete",
+            Retrieve = "Aula/Aula/Retrieve",
+            List = "Aula/Aula/List"
+        }
+    }
+}
+declare namespace GymAction.Aula {
+    enum AulaTipo {
+        Grupo = 0,
+        Individual = 1
+    }
+}
+declare namespace GymAction.AulaInstrutor {
+}
+declare namespace GymAction.AulaInstrutor {
+    interface AulaInstrutorForm {
+        CodAula: Serenity.LookupEditor;
+        CodInstrutor: Serenity.LookupEditor;
+        HorInicio: Serenity.StringEditor;
+        HorFim: Serenity.StringEditor;
+        IdfSegunda: Serenity.BooleanEditor;
+        IdfTerca: Serenity.BooleanEditor;
+        IdfQuarta: Serenity.BooleanEditor;
+        IdfQuinta: Serenity.BooleanEditor;
+        IdfSexta: Serenity.BooleanEditor;
+        IdfSabado: Serenity.BooleanEditor;
+        IdfDomingo: Serenity.BooleanEditor;
+        DesSala: Serenity.StringEditor;
+    }
+    class AulaInstrutorForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace GymAction.AulaInstrutor {
+    interface AulaInstrutorRow {
+        CodRegistro?: number;
+        CodAula?: number;
+        CodInstrutor?: number;
+        HorInicio?: string;
+        HorFim?: string;
+        IdfSegunda?: boolean;
+        IdfTerca?: boolean;
+        IdfQuarta?: boolean;
+        IdfQuinta?: boolean;
+        IdfSexta?: boolean;
+        IdfSabado?: boolean;
+        IdfDomingo?: boolean;
+        DesSala?: string;
+        CodAulaDesAula?: string;
+        CodAulaIdfTipoAtividade?: boolean;
+        CodAulaIdfAtivo?: boolean;
+        CodInstrutorDesNome?: string;
+        CodInstrutorDesRg?: string;
+        CodInstrutorDesCpf?: string;
+        CodInstrutorIdfTipoAtividade?: boolean;
+        CodInstrutorIdfAtivo?: boolean;
+    }
+    namespace AulaInstrutorRow {
+        const idProperty = "CodRegistro";
+        const localTextPrefix = "AulaInstrutor.AulaInstrutor";
+        const deletePermission = "AulaInstrutor:General";
+        const insertPermission = "AulaInstrutor:General";
+        const readPermission = "AulaInstrutor:General";
+        const updatePermission = "AulaInstrutor:General";
+        const enum Fields {
+            CodRegistro = "CodRegistro",
+            CodAula = "CodAula",
+            CodInstrutor = "CodInstrutor",
+            HorInicio = "HorInicio",
+            HorFim = "HorFim",
+            IdfSegunda = "IdfSegunda",
+            IdfTerca = "IdfTerca",
+            IdfQuarta = "IdfQuarta",
+            IdfQuinta = "IdfQuinta",
+            IdfSexta = "IdfSexta",
+            IdfSabado = "IdfSabado",
+            IdfDomingo = "IdfDomingo",
+            DesSala = "DesSala",
+            CodAulaDesAula = "CodAulaDesAula",
+            CodAulaIdfTipoAtividade = "CodAulaIdfTipoAtividade",
+            CodAulaIdfAtivo = "CodAulaIdfAtivo",
+            CodInstrutorDesNome = "CodInstrutorDesNome",
+            CodInstrutorDesRg = "CodInstrutorDesRg",
+            CodInstrutorDesCpf = "CodInstrutorDesCpf",
+            CodInstrutorIdfTipoAtividade = "CodInstrutorIdfTipoAtividade",
+            CodInstrutorIdfAtivo = "CodInstrutorIdfAtivo"
+        }
+    }
+}
+declare namespace GymAction.AulaInstrutor {
+    namespace AulaInstrutorService {
+        const baseUrl = "AulaInstrutor/AulaInstrutor";
+        function Create(request: Serenity.SaveRequest<AulaInstrutorRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<AulaInstrutorRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AulaInstrutorRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AulaInstrutorRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "AulaInstrutor/AulaInstrutor/Create",
+            Update = "AulaInstrutor/AulaInstrutor/Update",
+            Delete = "AulaInstrutor/AulaInstrutor/Delete",
+            Retrieve = "AulaInstrutor/AulaInstrutor/Retrieve",
+            List = "AulaInstrutor/AulaInstrutor/List"
+        }
+    }
+}
+declare namespace GymAction.AvaliacaoFisica {
+}
+declare namespace GymAction.AvaliacaoFisica {
+    interface AvaliacaoFisicaForm {
+        CodCliente: Serenity.LookupEditor;
+        CodFisioterapeuta: Serenity.LookupEditor;
+        DesAnamnese: Serenity.StringEditor;
+        DesExameDobras: Serenity.StringEditor;
+        DesExameErgometrico: Serenity.StringEditor;
+        DatAvaliacao: Serenity.DateEditor;
+    }
+    class AvaliacaoFisicaForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace GymAction.AvaliacaoFisica {
+    interface AvaliacaoFisicaRow {
+        CodAvaliacaoFisica?: number;
+        CodCliente?: number;
+        CodFisioterapeuta?: number;
+        DesAnamnese?: string;
+        DesExameDobras?: string;
+        DesExameErgometrico?: string;
+        DatAvaliacao?: string;
+        CodClienteCodBiometria?: number;
+        CodClienteDesNome?: string;
+        CodClienteDesRg?: string;
+        CodClienteDesCpf?: string;
+        CodClienteIdfAdimplente?: boolean;
+        CodClienteIdfAtivo?: boolean;
+        CodClienteDesEndereco?: string;
+        CodFisioterapeutaDesNome?: string;
+        CodFisioterapeutaIdfAtivo?: boolean;
+    }
+    namespace AvaliacaoFisicaRow {
+        const idProperty = "CodAvaliacaoFisica";
+        const nameProperty = "DesAnamnese";
+        const localTextPrefix = "AvaliacaoFisica.AvaliacaoFisica";
+        const deletePermission = "AvaliacaoFisica:General";
+        const insertPermission = "AvaliacaoFisica:General";
+        const readPermission = "AvaliacaoFisica:General";
+        const updatePermission = "AvaliacaoFisica:General";
+        const enum Fields {
+            CodAvaliacaoFisica = "CodAvaliacaoFisica",
+            CodCliente = "CodCliente",
+            CodFisioterapeuta = "CodFisioterapeuta",
+            DesAnamnese = "DesAnamnese",
+            DesExameDobras = "DesExameDobras",
+            DesExameErgometrico = "DesExameErgometrico",
+            DatAvaliacao = "DatAvaliacao",
+            CodClienteCodBiometria = "CodClienteCodBiometria",
+            CodClienteDesNome = "CodClienteDesNome",
+            CodClienteDesRg = "CodClienteDesRg",
+            CodClienteDesCpf = "CodClienteDesCpf",
+            CodClienteIdfAdimplente = "CodClienteIdfAdimplente",
+            CodClienteIdfAtivo = "CodClienteIdfAtivo",
+            CodClienteDesEndereco = "CodClienteDesEndereco",
+            CodFisioterapeutaDesNome = "CodFisioterapeutaDesNome",
+            CodFisioterapeutaIdfAtivo = "CodFisioterapeutaIdfAtivo"
+        }
+    }
+}
+declare namespace GymAction.AvaliacaoFisica {
+    namespace AvaliacaoFisicaService {
+        const baseUrl = "AvaliacaoFisica/AvaliacaoFisica";
+        function Create(request: Serenity.SaveRequest<AvaliacaoFisicaRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<AvaliacaoFisicaRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AvaliacaoFisicaRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AvaliacaoFisicaRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "AvaliacaoFisica/AvaliacaoFisica/Create",
+            Update = "AvaliacaoFisica/AvaliacaoFisica/Update",
+            Delete = "AvaliacaoFisica/AvaliacaoFisica/Delete",
+            Retrieve = "AvaliacaoFisica/AvaliacaoFisica/Retrieve",
+            List = "AvaliacaoFisica/AvaliacaoFisica/List"
+        }
+    }
+}
+declare namespace GymAction.Cliente {
+}
+declare namespace GymAction.Cliente {
+    interface ClienteForm {
+        CodBiometria: Serenity.IntegerEditor;
+        DesNome: Serenity.StringEditor;
+        DesRg: Serenity.StringEditor;
+        DesCpf: Serenity.StringEditor;
+        IdfAdimplente: Serenity.BooleanEditor;
+        IdfAtivo: Serenity.BooleanEditor;
+        DesEndereco: Serenity.StringEditor;
+    }
+    class ClienteForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace GymAction.Cliente {
+    interface ClienteRow {
+        CodCliente?: number;
+        CodBiometria?: number;
+        DesNome?: string;
+        DesRg?: string;
+        DesCpf?: string;
+        IdfAdimplente?: boolean;
+        IdfAtivo?: boolean;
+        DesEndereco?: string;
+    }
+    namespace ClienteRow {
+        const idProperty = "CodCliente";
+        const nameProperty = "DesNome";
+        const localTextPrefix = "Cliente.Cliente";
+        const lookupKey = "Cliente.Cliente";
+        function getLookup(): Q.Lookup<ClienteRow>;
+        const deletePermission = "Cliente:General";
+        const insertPermission = "Cliente:General";
+        const readPermission = "Cliente:General";
+        const updatePermission = "Cliente:General";
+        const enum Fields {
+            CodCliente = "CodCliente",
+            CodBiometria = "CodBiometria",
+            DesNome = "DesNome",
+            DesRg = "DesRg",
+            DesCpf = "DesCpf",
+            IdfAdimplente = "IdfAdimplente",
+            IdfAtivo = "IdfAtivo",
+            DesEndereco = "DesEndereco"
+        }
+    }
+}
+declare namespace GymAction.Cliente {
+    namespace ClienteService {
+        const baseUrl = "Cliente/Cliente";
+        function Create(request: Serenity.SaveRequest<ClienteRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ClienteRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ClienteRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ClienteRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Cliente/Cliente/Create",
+            Update = "Cliente/Cliente/Update",
+            Delete = "Cliente/Cliente/Delete",
+            Retrieve = "Cliente/Cliente/Retrieve",
+            List = "Cliente/Cliente/List"
+        }
+    }
+}
+declare namespace GymAction.ClientePlanoAula {
+}
+declare namespace GymAction.ClientePlanoAula {
+    interface ClientePlanoAulaForm {
+        Plano: Serenity.LookupEditor;
+        Aula: Serenity.LookupEditor;
+        Cliente: Serenity.LookupEditor;
+    }
+    class ClientePlanoAulaForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace GymAction.ClientePlanoAula {
+    interface ClientePlanoAulaRow {
+        CodRegistro?: number;
+        Plano?: number;
+        Aula?: number;
+        Cliente?: number;
+        PlanoDesNome?: string;
+        PlanoIdfTipo?: string;
+        PlanoIdfAivo?: boolean;
+        AulaDesAula?: string;
+        AulaIdfTipoAtividade?: boolean;
+        AulaIdfAtivo?: boolean;
+        ClienteCodBiometria?: number;
+        ClienteDesNome?: string;
+        ClienteDesRg?: string;
+        ClienteDesCpf?: string;
+        ClienteIdfAdimplente?: boolean;
+        ClienteIdfAtivo?: boolean;
+        ClienteDesEndereco?: string;
+    }
+    namespace ClientePlanoAulaRow {
+        const idProperty = "CodRegistro";
+        const localTextPrefix = "ClientePlanoAula.ClientePlanoAula";
+        const deletePermission = "ClientePlanoAula:General";
+        const insertPermission = "ClientePlanoAula:General";
+        const readPermission = "ClientePlanoAula:General";
+        const updatePermission = "ClientePlanoAula:General";
+        const enum Fields {
+            CodRegistro = "CodRegistro",
+            Plano = "Plano",
+            Aula = "Aula",
+            Cliente = "Cliente",
+            PlanoDesNome = "PlanoDesNome",
+            PlanoIdfTipo = "PlanoIdfTipo",
+            PlanoIdfAivo = "PlanoIdfAivo",
+            AulaDesAula = "AulaDesAula",
+            AulaIdfTipoAtividade = "AulaIdfTipoAtividade",
+            AulaIdfAtivo = "AulaIdfAtivo",
+            ClienteCodBiometria = "ClienteCodBiometria",
+            ClienteDesNome = "ClienteDesNome",
+            ClienteDesRg = "ClienteDesRg",
+            ClienteDesCpf = "ClienteDesCpf",
+            ClienteIdfAdimplente = "ClienteIdfAdimplente",
+            ClienteIdfAtivo = "ClienteIdfAtivo",
+            ClienteDesEndereco = "ClienteDesEndereco"
+        }
+    }
+}
+declare namespace GymAction.ClientePlanoAula {
+    namespace ClientePlanoAulaService {
+        const baseUrl = "ClientePlanoAula/ClientePlanoAula";
+        function Create(request: Serenity.SaveRequest<ClientePlanoAulaRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ClientePlanoAulaRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ClientePlanoAulaRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ClientePlanoAulaRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "ClientePlanoAula/ClientePlanoAula/Create",
+            Update = "ClientePlanoAula/ClientePlanoAula/Update",
+            Delete = "ClientePlanoAula/ClientePlanoAula/Delete",
+            Retrieve = "ClientePlanoAula/ClientePlanoAula/Retrieve",
+            List = "ClientePlanoAula/ClientePlanoAula/List"
+        }
+    }
+}
 declare namespace GymAction.Common {
     interface UserPreferenceRetrieveRequest extends Serenity.ServiceRequest {
         PreferenceType?: string;
@@ -496,6 +882,144 @@ declare namespace GymAction {
         ErrorList?: string[];
     }
 }
+declare namespace GymAction.Ferias {
+}
+declare namespace GymAction.Ferias {
+    interface FeriasForm {
+        CodPlano: Serenity.LookupEditor;
+        CodAula: Serenity.LookupEditor;
+        CodCliente: Serenity.LookupEditor;
+        DatInicio: Serenity.DateEditor;
+        DatFim: Serenity.DateEditor;
+    }
+    class FeriasForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace GymAction.Ferias {
+    interface FeriasRow {
+        CodFerias?: number;
+        CodPlano?: number;
+        CodAula?: number;
+        CodCliente?: number;
+        DatInicio?: string;
+        DatFim?: string;
+        CodPlanoDesNome?: string;
+        CodPlanoIdfTipo?: string;
+        CodPlanoIdfAivo?: boolean;
+        CodAulaDesAula?: string;
+        CodAulaIdfTipoAtividade?: boolean;
+        CodAulaIdfAtivo?: boolean;
+        CodClienteCodBiometria?: number;
+        CodClienteDesNome?: string;
+        CodClienteDesRg?: string;
+        CodClienteDesCpf?: string;
+        CodClienteIdfAdimplente?: boolean;
+        CodClienteIdfAtivo?: boolean;
+        CodClienteDesEndereco?: string;
+    }
+    namespace FeriasRow {
+        const idProperty = "CodFerias";
+        const localTextPrefix = "Ferias.Ferias";
+        const deletePermission = "Ferias:General";
+        const insertPermission = "Ferias:General";
+        const readPermission = "Ferias:General";
+        const updatePermission = "Ferias:General";
+        const enum Fields {
+            CodFerias = "CodFerias",
+            CodPlano = "CodPlano",
+            CodAula = "CodAula",
+            CodCliente = "CodCliente",
+            DatInicio = "DatInicio",
+            DatFim = "DatFim",
+            CodPlanoDesNome = "CodPlanoDesNome",
+            CodPlanoIdfTipo = "CodPlanoIdfTipo",
+            CodPlanoIdfAivo = "CodPlanoIdfAivo",
+            CodAulaDesAula = "CodAulaDesAula",
+            CodAulaIdfTipoAtividade = "CodAulaIdfTipoAtividade",
+            CodAulaIdfAtivo = "CodAulaIdfAtivo",
+            CodClienteCodBiometria = "CodClienteCodBiometria",
+            CodClienteDesNome = "CodClienteDesNome",
+            CodClienteDesRg = "CodClienteDesRg",
+            CodClienteDesCpf = "CodClienteDesCpf",
+            CodClienteIdfAdimplente = "CodClienteIdfAdimplente",
+            CodClienteIdfAtivo = "CodClienteIdfAtivo",
+            CodClienteDesEndereco = "CodClienteDesEndereco"
+        }
+    }
+}
+declare namespace GymAction.Ferias {
+    namespace FeriasService {
+        const baseUrl = "Ferias/Ferias";
+        function Create(request: Serenity.SaveRequest<FeriasRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<FeriasRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<FeriasRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<FeriasRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Ferias/Ferias/Create",
+            Update = "Ferias/Ferias/Update",
+            Delete = "Ferias/Ferias/Delete",
+            Retrieve = "Ferias/Ferias/Retrieve",
+            List = "Ferias/Ferias/List"
+        }
+    }
+}
+declare namespace GymAction.Fisioterapeuta {
+}
+declare namespace GymAction.Fisioterapeuta {
+    interface FisioterapeutaForm {
+        DesNome: Serenity.StringEditor;
+        IdfAtivo: Serenity.BooleanEditor;
+    }
+    class FisioterapeutaForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace GymAction.Fisioterapeuta {
+    interface FisioterapeutaRow {
+        CodFisioterapeuta?: number;
+        DesNome?: string;
+        IdfAtivo?: boolean;
+    }
+    namespace FisioterapeutaRow {
+        const idProperty = "CodFisioterapeuta";
+        const nameProperty = "DesNome";
+        const localTextPrefix = "Fisioterapeuta.Fisioterapeuta";
+        const lookupKey = "Fisioterapeuta.Fisioterapeuta";
+        function getLookup(): Q.Lookup<FisioterapeutaRow>;
+        const deletePermission = "Fisioterapeuta:General";
+        const insertPermission = "Fisioterapeuta:General";
+        const readPermission = "Fisioterapeuta:General";
+        const updatePermission = "Fisioterapeuta:General";
+        const enum Fields {
+            CodFisioterapeuta = "CodFisioterapeuta",
+            DesNome = "DesNome",
+            IdfAtivo = "IdfAtivo"
+        }
+    }
+}
+declare namespace GymAction.Fisioterapeuta {
+    namespace FisioterapeutaService {
+        const baseUrl = "Fisioterapeuta/Fisioterapeuta";
+        function Create(request: Serenity.SaveRequest<FisioterapeutaRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<FisioterapeutaRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<FisioterapeutaRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<FisioterapeutaRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Fisioterapeuta/Fisioterapeuta/Create",
+            Update = "Fisioterapeuta/Fisioterapeuta/Update",
+            Delete = "Fisioterapeuta/Fisioterapeuta/Delete",
+            Retrieve = "Fisioterapeuta/Fisioterapeuta/Retrieve",
+            List = "Fisioterapeuta/Fisioterapeuta/List"
+        }
+    }
+}
 declare namespace GymAction {
     interface GetNextNumberRequest extends Serenity.ServiceRequest {
         Prefix?: string;
@@ -506,6 +1030,75 @@ declare namespace GymAction {
     interface GetNextNumberResponse extends Serenity.ServiceResponse {
         Number?: number;
         Serial?: string;
+    }
+}
+declare namespace GymAction.Instrutor {
+}
+declare namespace GymAction.Instrutor {
+    interface InstrutorForm {
+        DesNome: Serenity.StringEditor;
+        DesRg: Serenity.StringEditor;
+        DesCpf: Serenity.StringEditor;
+        IdfTipoAtividade: Serenity.EnumEditor;
+        IdfAtivo: Serenity.BooleanEditor;
+    }
+    class InstrutorForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace GymAction.Instrutor {
+    interface InstrutorRow {
+        CodInstrutor?: number;
+        DesNome?: string;
+        DesRg?: string;
+        DesCpf?: string;
+        IdfTipoAtividade?: number;
+        IdfAtivo?: boolean;
+    }
+    namespace InstrutorRow {
+        const idProperty = "CodInstrutor";
+        const nameProperty = "DesNome";
+        const localTextPrefix = "Instrutor.Instrutor";
+        const lookupKey = "Instrutor.Instrutor";
+        function getLookup(): Q.Lookup<InstrutorRow>;
+        const deletePermission = "Instrutor:General";
+        const insertPermission = "Instrutor:General";
+        const readPermission = "Instrutor:General";
+        const updatePermission = "Instrutor:General";
+        const enum Fields {
+            CodInstrutor = "CodInstrutor",
+            DesNome = "DesNome",
+            DesRg = "DesRg",
+            DesCpf = "DesCpf",
+            IdfTipoAtividade = "IdfTipoAtividade",
+            IdfAtivo = "IdfAtivo"
+        }
+    }
+}
+declare namespace GymAction.Instrutor {
+    namespace InstrutorService {
+        const baseUrl = "Instrutor/Instrutor";
+        function Create(request: Serenity.SaveRequest<InstrutorRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<InstrutorRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<InstrutorRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<InstrutorRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Instrutor/Instrutor/Create",
+            Update = "Instrutor/Instrutor/Update",
+            Delete = "Instrutor/Instrutor/Delete",
+            Retrieve = "Instrutor/Instrutor/Retrieve",
+            List = "Instrutor/Instrutor/List"
+        }
+    }
+}
+declare namespace GymAction.Instrutor {
+    enum InstrutorTipo {
+        Individual = 0,
+        Grupo = 1,
+        Todas = 2
     }
 }
 declare namespace GymAction.Membership {
@@ -596,6 +1189,304 @@ declare namespace GymAction.Membership {
         DisplayName?: string;
         Email?: string;
         Password?: string;
+    }
+}
+declare namespace GymAction.Pagamento {
+}
+declare namespace GymAction.Pagamento {
+    interface PagamentoForm {
+        CodPlano: Serenity.LookupEditor;
+        CodAula: Serenity.LookupEditor;
+        CodCliente: Serenity.LookupEditor;
+        DatVencimento: Serenity.DateEditor;
+        DatPagamento: Serenity.DateEditor;
+        VlrPago: Serenity.DecimalEditor;
+    }
+    class PagamentoForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace GymAction.Pagamento {
+    interface PagamentoRow {
+        CodPagamento?: number;
+        CodPlano?: number;
+        CodAula?: number;
+        CodCliente?: number;
+        DatVencimento?: string;
+        DatPagamento?: string;
+        VlrPago?: number;
+        CodPlanoDesNome?: string;
+        CodPlanoIdfTipo?: string;
+        CodPlanoIdfAivo?: boolean;
+        CodAulaDesAula?: string;
+        CodAulaIdfTipoAtividade?: boolean;
+        CodAulaIdfAtivo?: boolean;
+        CodClienteCodBiometria?: number;
+        CodClienteDesNome?: string;
+        CodClienteDesRg?: string;
+        CodClienteDesCpf?: string;
+        CodClienteIdfAdimplente?: boolean;
+        CodClienteIdfAtivo?: boolean;
+        CodClienteDesEndereco?: string;
+    }
+    namespace PagamentoRow {
+        const idProperty = "CodPagamento";
+        const localTextPrefix = "Pagamento.Pagamento";
+        const deletePermission = "Pagamento:General";
+        const insertPermission = "Pagamento:General";
+        const readPermission = "Pagamento:General";
+        const updatePermission = "Pagamento:General";
+        const enum Fields {
+            CodPagamento = "CodPagamento",
+            CodPlano = "CodPlano",
+            CodAula = "CodAula",
+            CodCliente = "CodCliente",
+            DatVencimento = "DatVencimento",
+            DatPagamento = "DatPagamento",
+            VlrPago = "VlrPago",
+            CodPlanoDesNome = "CodPlanoDesNome",
+            CodPlanoIdfTipo = "CodPlanoIdfTipo",
+            CodPlanoIdfAivo = "CodPlanoIdfAivo",
+            CodAulaDesAula = "CodAulaDesAula",
+            CodAulaIdfTipoAtividade = "CodAulaIdfTipoAtividade",
+            CodAulaIdfAtivo = "CodAulaIdfAtivo",
+            CodClienteCodBiometria = "CodClienteCodBiometria",
+            CodClienteDesNome = "CodClienteDesNome",
+            CodClienteDesRg = "CodClienteDesRg",
+            CodClienteDesCpf = "CodClienteDesCpf",
+            CodClienteIdfAdimplente = "CodClienteIdfAdimplente",
+            CodClienteIdfAtivo = "CodClienteIdfAtivo",
+            CodClienteDesEndereco = "CodClienteDesEndereco"
+        }
+    }
+}
+declare namespace GymAction.Pagamento {
+    namespace PagamentoService {
+        const baseUrl = "Pagamento/Pagamento";
+        function Create(request: Serenity.SaveRequest<PagamentoRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<PagamentoRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<PagamentoRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<PagamentoRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Pagamento/Pagamento/Create",
+            Update = "Pagamento/Pagamento/Update",
+            Delete = "Pagamento/Pagamento/Delete",
+            Retrieve = "Pagamento/Pagamento/Retrieve",
+            List = "Pagamento/Pagamento/List"
+        }
+    }
+}
+declare namespace GymAction.Plano {
+}
+declare namespace GymAction.Plano {
+    interface PlanoForm {
+        DesNome: Serenity.StringEditor;
+        IdfTipo: Serenity.EnumEditor;
+        IdfAivo: Serenity.BooleanEditor;
+    }
+    class PlanoForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace GymAction.Plano {
+    interface PlanoRow {
+        CodPlano?: number;
+        DesNome?: string;
+        IdfTipo?: number;
+        IdfAivo?: boolean;
+    }
+    namespace PlanoRow {
+        const idProperty = "CodPlano";
+        const nameProperty = "DesNome";
+        const localTextPrefix = "Plano.Plano";
+        const lookupKey = "Plano.Plano";
+        function getLookup(): Q.Lookup<PlanoRow>;
+        const deletePermission = "Plano:General";
+        const insertPermission = "Plano:General";
+        const readPermission = "Plano:General";
+        const updatePermission = "Plano:General";
+        const enum Fields {
+            CodPlano = "CodPlano",
+            DesNome = "DesNome",
+            IdfTipo = "IdfTipo",
+            IdfAivo = "IdfAivo"
+        }
+    }
+}
+declare namespace GymAction.Plano {
+    namespace PlanoService {
+        const baseUrl = "Plano/Plano";
+        function Create(request: Serenity.SaveRequest<PlanoRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<PlanoRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<PlanoRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<PlanoRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Plano/Plano/Create",
+            Update = "Plano/Plano/Update",
+            Delete = "Plano/Plano/Delete",
+            Retrieve = "Plano/Plano/Retrieve",
+            List = "Plano/Plano/List"
+        }
+    }
+}
+declare namespace GymAction.Plano {
+    enum PlanoTipo {
+        Mensal = 0,
+        Anual = 1
+    }
+}
+declare namespace GymAction.PlanoAula {
+}
+declare namespace GymAction.PlanoAula {
+    interface PlanoAulaForm {
+        CodPlano: Serenity.LookupEditor;
+        CodAula: Serenity.LookupEditor;
+        VlrAula: Serenity.DecimalEditor;
+    }
+    class PlanoAulaForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace GymAction.PlanoAula {
+    interface PlanoAulaRow {
+        CodRegistro?: number;
+        CodPlano?: number;
+        CodAula?: number;
+        VlrAula?: number;
+        CodPlanoDesNome?: string;
+        CodPlanoIdfTipo?: string;
+        CodPlanoIdfAivo?: boolean;
+        CodAulaDesAula?: string;
+        CodAulaIdfTipoAtividade?: boolean;
+        CodAulaIdfAtivo?: boolean;
+    }
+    namespace PlanoAulaRow {
+        const idProperty = "CodRegistro";
+        const nameProperty = "CodPlanoDesNome";
+        const localTextPrefix = "PlanoAula.PlanoAula";
+        const deletePermission = "PlanoAula:General";
+        const insertPermission = "PlanoAula:General";
+        const readPermission = "PlanoAula:General";
+        const updatePermission = "PlanoAula:General";
+        const enum Fields {
+            CodRegistro = "CodRegistro",
+            CodPlano = "CodPlano",
+            CodAula = "CodAula",
+            VlrAula = "VlrAula",
+            CodPlanoDesNome = "CodPlanoDesNome",
+            CodPlanoIdfTipo = "CodPlanoIdfTipo",
+            CodPlanoIdfAivo = "CodPlanoIdfAivo",
+            CodAulaDesAula = "CodAulaDesAula",
+            CodAulaIdfTipoAtividade = "CodAulaIdfTipoAtividade",
+            CodAulaIdfAtivo = "CodAulaIdfAtivo"
+        }
+    }
+}
+declare namespace GymAction.PlanoAula {
+    namespace PlanoAulaService {
+        const baseUrl = "PlanoAula/PlanoAula";
+        function Create(request: Serenity.SaveRequest<PlanoAulaRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<PlanoAulaRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<PlanoAulaRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<PlanoAulaRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "PlanoAula/PlanoAula/Create",
+            Update = "PlanoAula/PlanoAula/Update",
+            Delete = "PlanoAula/PlanoAula/Delete",
+            Retrieve = "PlanoAula/PlanoAula/Retrieve",
+            List = "PlanoAula/PlanoAula/List"
+        }
+    }
+}
+declare namespace GymAction.RegistroAula {
+}
+declare namespace GymAction.RegistroAula {
+    interface RegistroAulaForm {
+        CodPlano: Serenity.LookupEditor;
+        CodAula: Serenity.LookupEditor;
+        CodCliente: Serenity.LookupEditor;
+        DatAula: Serenity.DateEditor;
+    }
+    class RegistroAulaForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace GymAction.RegistroAula {
+    interface RegistroAulaRow {
+        CodRegistro?: number;
+        CodPlano?: number;
+        CodAula?: number;
+        CodCliente?: number;
+        DatAula?: string;
+        CodPlanoDesNome?: string;
+        CodPlanoIdfTipo?: string;
+        CodPlanoIdfAivo?: boolean;
+        CodAulaDesAula?: string;
+        CodAulaIdfTipoAtividade?: boolean;
+        CodAulaIdfAtivo?: boolean;
+        CodClienteCodBiometria?: number;
+        CodClienteDesNome?: string;
+        CodClienteDesRg?: string;
+        CodClienteDesCpf?: string;
+        CodClienteIdfAdimplente?: boolean;
+        CodClienteIdfAtivo?: boolean;
+        CodClienteDesEndereco?: string;
+    }
+    namespace RegistroAulaRow {
+        const idProperty = "CodRegistro";
+        const localTextPrefix = "RegistroAula.RegistroAula";
+        const deletePermission = "RegistroAula:General";
+        const insertPermission = "RegistroAula:General";
+        const readPermission = "RegistroAula:General";
+        const updatePermission = "RegistroAula:General";
+        const enum Fields {
+            CodRegistro = "CodRegistro",
+            CodPlano = "CodPlano",
+            CodAula = "CodAula",
+            CodCliente = "CodCliente",
+            DatAula = "DatAula",
+            CodPlanoDesNome = "CodPlanoDesNome",
+            CodPlanoIdfTipo = "CodPlanoIdfTipo",
+            CodPlanoIdfAivo = "CodPlanoIdfAivo",
+            CodAulaDesAula = "CodAulaDesAula",
+            CodAulaIdfTipoAtividade = "CodAulaIdfTipoAtividade",
+            CodAulaIdfAtivo = "CodAulaIdfAtivo",
+            CodClienteCodBiometria = "CodClienteCodBiometria",
+            CodClienteDesNome = "CodClienteDesNome",
+            CodClienteDesRg = "CodClienteDesRg",
+            CodClienteDesCpf = "CodClienteDesCpf",
+            CodClienteIdfAdimplente = "CodClienteIdfAdimplente",
+            CodClienteIdfAtivo = "CodClienteIdfAtivo",
+            CodClienteDesEndereco = "CodClienteDesEndereco"
+        }
+    }
+}
+declare namespace GymAction.RegistroAula {
+    namespace RegistroAulaService {
+        const baseUrl = "RegistroAula/RegistroAula";
+        function Create(request: Serenity.SaveRequest<RegistroAulaRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<RegistroAulaRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<RegistroAulaRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<RegistroAulaRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "RegistroAula/RegistroAula/Create",
+            Update = "RegistroAula/RegistroAula/Update",
+            Delete = "RegistroAula/RegistroAula/Delete",
+            Retrieve = "RegistroAula/RegistroAula/Retrieve",
+            List = "RegistroAula/RegistroAula/List"
+        }
     }
 }
 declare namespace GymAction {
@@ -796,6 +1687,130 @@ declare namespace GymAction.Administration {
     interface UserRoleDialogOptions {
         userID: number;
         username: string;
+    }
+}
+declare namespace GymAction.Aula {
+    class AulaDialog extends Serenity.EntityDialog<AulaRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: AulaForm;
+    }
+}
+declare namespace GymAction.Aula {
+    class AulaGrid extends Serenity.EntityGrid<AulaRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof AulaDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        getButtons(): Serenity.ToolButton[];
+    }
+}
+declare namespace GymAction.AulaInstrutor {
+    class AulaInstrutorDialog extends Serenity.EntityDialog<AulaInstrutorRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): any;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: AulaInstrutorForm;
+    }
+}
+declare namespace GymAction.AulaInstrutor {
+    class AulaInstrutorGrid extends Serenity.EntityGrid<AulaInstrutorRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof AulaInstrutorDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        getButtons(): Serenity.ToolButton[];
+    }
+}
+declare namespace GymAction.AvaliacaoFisica {
+    class AvaliacaoFisicaDialog extends Serenity.EntityDialog<AvaliacaoFisicaRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: AvaliacaoFisicaForm;
+    }
+}
+declare namespace GymAction.AvaliacaoFisica {
+    class AvaliacaoFisicaGrid extends Serenity.EntityGrid<AvaliacaoFisicaRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof AvaliacaoFisicaDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        getButtons(): Serenity.ToolButton[];
+    }
+}
+declare namespace GymAction.Cliente {
+    class ClienteDialog extends Serenity.EntityDialog<ClienteRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: ClienteForm;
+    }
+}
+declare namespace GymAction.Cliente {
+    class ClienteGrid extends Serenity.EntityGrid<ClienteRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ClienteDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        getButtons(): Serenity.ToolButton[];
+    }
+}
+declare namespace GymAction.ClientePlanoAula {
+    class ClientePlanoAulaDialog extends Serenity.EntityDialog<ClientePlanoAulaRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: ClientePlanoAulaForm;
+    }
+}
+declare namespace GymAction.ClientePlanoAula {
+    class ClientePlanoAulaGrid extends Serenity.EntityGrid<ClientePlanoAulaRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ClientePlanoAulaDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        getButtons(): Serenity.ToolButton[];
     }
 }
 declare namespace GymAction.LanguageList {
@@ -1047,6 +2062,80 @@ declare namespace GymAction.Common {
         setItem(key: string, data: string): void;
     }
 }
+declare namespace GymAction.Ferias {
+    class FeriasDialog extends Serenity.EntityDialog<FeriasRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: FeriasForm;
+    }
+}
+declare namespace GymAction.Ferias {
+    class FeriasGrid extends Serenity.EntityGrid<FeriasRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof FeriasDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        getButtons(): Serenity.ToolButton[];
+    }
+}
+declare namespace GymAction.Fisioterapeuta {
+    class FisioterapeutaDialog extends Serenity.EntityDialog<FisioterapeutaRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: FisioterapeutaForm;
+    }
+}
+declare namespace GymAction.Fisioterapeuta {
+    class FisioterapeutaGrid extends Serenity.EntityGrid<FisioterapeutaRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof FisioterapeutaDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        getButtons(): Serenity.ToolButton[];
+    }
+}
+declare namespace GymAction.Instrutor {
+    class InstrutorDialog extends Serenity.EntityDialog<InstrutorRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: InstrutorForm;
+    }
+}
+declare namespace GymAction.Instrutor {
+    class InstrutorGrid extends Serenity.EntityGrid<InstrutorRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof InstrutorDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        getButtons(): Serenity.ToolButton[];
+    }
+}
 declare namespace GymAction.Membership {
     class LoginPanel extends Serenity.PropertyPanel<LoginRequest, any> {
         protected getFormKey(): string;
@@ -1083,313 +2172,28 @@ declare namespace GymAction.Membership {
         constructor(container: JQuery);
     }
 }
-declare namespace GymAction.Cliente {
-    class ClienteForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
-    interface ClienteForm {
-        CodBiometria: Serenity.IntegerEditor;
-        DesNome: Serenity.StringEditor;
-        DesRg: Serenity.StringEditor;
-        DesCpf: Serenity.StringEditor;
-        IdfAdimplente: Serenity.BooleanEditor;
-        IdfAtivo: Serenity.BooleanEditor;
-        DesEndereco: Serenity.StringEditor;
-    }
-}
-declare namespace GymAction.Cliente {
-    interface ClienteRow {
-        CodCliente?: number;
-        CodBiometria?: number;
-        DesNome?: string;
-        DesRg?: string;
-        DesCpf?: string;
-        IdfAdimplente?: boolean;
-        IdfAtivo?: boolean;
-        DesEndereco?: string;
-    }
-    namespace ClienteRow {
-        const idProperty = "CodCliente";
-        const nameProperty = "DesNome";
-        const localTextPrefix = "Cliente.Cliente";
-        const deletePermission = "Cliente:General";
-        const insertPermission = "Cliente:General";
-        const readPermission = "Cliente:General";
-        const updatePermission = "Cliente:General";
-        namespace Fields {
-            const CodCliente: any;
-            const CodBiometria: any;
-            const DesNome: any;
-            const DesRg: any;
-            const DesCpf: any;
-            const IdfAdimplente: any;
-            const IdfAtivo: any;
-            const DesEndereco: any;
-        }
-    }
-}
-declare namespace GymAction.Cliente {
-    namespace ClienteService {
-        const baseUrl = "Cliente/Cliente";
-        function Create(request: Serenity.SaveRequest<ClienteRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<ClienteRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ClienteRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ClienteRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Create: string;
-            const Update: string;
-            const Delete: string;
-            const Retrieve: string;
-            const List: string;
-        }
-    }
-}
-declare namespace GymAction.Cliente {
-    class ClienteDialog extends Serenity.EntityDialog<ClienteRow, any> {
+declare namespace GymAction.Pagamento {
+    class PagamentoDialog extends Serenity.EntityDialog<PagamentoRow, any> {
         protected getFormKey(): string;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
         protected getService(): string;
         protected getDeletePermission(): string;
         protected getInsertPermission(): string;
         protected getUpdatePermission(): string;
-        protected form: ClienteForm;
+        protected form: PagamentoForm;
     }
 }
-declare namespace GymAction.Cliente {
-    class ClienteGrid extends Serenity.EntityGrid<ClienteRow, any> {
+declare namespace GymAction.Pagamento {
+    class PagamentoGrid extends Serenity.EntityGrid<PagamentoRow, any> {
         protected getColumnsKey(): string;
-        protected getDialogType(): typeof ClienteDialog;
+        protected getDialogType(): typeof PagamentoDialog;
         protected getIdProperty(): string;
         protected getInsertPermission(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
         getButtons(): Serenity.ToolButton[];
-    }
-}
-declare namespace GymAction.Fisioterapeuta {
-    class FisioterapeutaForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
-    interface FisioterapeutaForm {
-        DesNome: Serenity.StringEditor;
-        IdfAtivo: Serenity.BooleanEditor;
-    }
-}
-declare namespace GymAction.Fisioterapeuta {
-    interface FisioterapeutaRow {
-        CodFisioterapeuta?: number;
-        DesNome?: string;
-        IdfAtivo?: boolean;
-    }
-    namespace FisioterapeutaRow {
-        const idProperty = "CodFisioterapeuta";
-        const nameProperty = "DesNome";
-        const localTextPrefix = "Fisioterapeuta.Fisioterapeuta";
-        const deletePermission = "Fisioterapeuta:General";
-        const insertPermission = "Fisioterapeuta:General";
-        const readPermission = "Fisioterapeuta:General";
-        const updatePermission = "Fisioterapeuta:General";
-        namespace Fields {
-            const CodFisioterapeuta: any;
-            const DesNome: any;
-            const IdfAtivo: any;
-        }
-    }
-}
-declare namespace GymAction.Fisioterapeuta {
-    namespace FisioterapeutaService {
-        const baseUrl = "Fisioterapeuta/Fisioterapeuta";
-        function Create(request: Serenity.SaveRequest<FisioterapeutaRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<FisioterapeutaRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<FisioterapeutaRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<FisioterapeutaRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Create: string;
-            const Update: string;
-            const Delete: string;
-            const Retrieve: string;
-            const List: string;
-        }
-    }
-}
-declare namespace GymAction.Fisioterapeuta {
-    class FisioterapeutaDialog extends Serenity.EntityDialog<FisioterapeutaRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected getDeletePermission(): string;
-        protected getInsertPermission(): string;
-        protected getUpdatePermission(): string;
-        protected form: FisioterapeutaForm;
-    }
-}
-declare namespace GymAction.Fisioterapeuta {
-    class FisioterapeutaGrid extends Serenity.EntityGrid<FisioterapeutaRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof FisioterapeutaDialog;
-        protected getIdProperty(): string;
-        protected getInsertPermission(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace GymAction.AvaliacaoFisica {
-    class AvaliacaoFisicaForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
-    interface AvaliacaoFisicaForm {
-        CodCliente: Serenity.IntegerEditor;
-        CodFisioterapeuta: Serenity.IntegerEditor;
-        DesAnamnese: Serenity.StringEditor;
-        DesExameDobras: Serenity.StringEditor;
-        DesExameErgometrico: Serenity.StringEditor;
-        DatAvaliacao: Serenity.DateEditor;
-    }
-}
-declare namespace GymAction.AvaliacaoFisica {
-    interface AvaliacaoFisicaRow {
-        CodAvaliacaoFisica?: number;
-        CodCliente?: number;
-        CodFisioterapeuta?: number;
-        DesAnamnese?: string;
-        DesExameDobras?: string;
-        DesExameErgometrico?: string;
-        DatAvaliacao?: string;
-        CodClienteCodBiometria?: number;
-        CodClienteDesNome?: string;
-        CodClienteDesRg?: string;
-        CodClienteDesCpf?: string;
-        CodClienteIdfAdimplente?: boolean;
-        CodClienteIdfAtivo?: boolean;
-        CodClienteDesEndereco?: string;
-        CodFisioterapeutaDesNome?: string;
-        CodFisioterapeutaIdfAtivo?: boolean;
-    }
-    namespace AvaliacaoFisicaRow {
-        const idProperty = "CodAvaliacaoFisica";
-        const nameProperty = "DesAnamnese";
-        const localTextPrefix = "AvaliacaoFisica.AvaliacaoFisica";
-        const deletePermission = "AvaliacaoFisica:General";
-        const insertPermission = "AvaliacaoFisica:General";
-        const readPermission = "AvaliacaoFisica:General";
-        const updatePermission = "AvaliacaoFisica:General";
-        namespace Fields {
-            const CodAvaliacaoFisica: any;
-            const CodCliente: any;
-            const CodFisioterapeuta: any;
-            const DesAnamnese: any;
-            const DesExameDobras: any;
-            const DesExameErgometrico: any;
-            const DatAvaliacao: any;
-            const CodClienteCodBiometria: any;
-            const CodClienteDesNome: any;
-            const CodClienteDesRg: any;
-            const CodClienteDesCpf: any;
-            const CodClienteIdfAdimplente: any;
-            const CodClienteIdfAtivo: any;
-            const CodClienteDesEndereco: any;
-            const CodFisioterapeutaDesNome: any;
-            const CodFisioterapeutaIdfAtivo: any;
-        }
-    }
-}
-declare namespace GymAction.AvaliacaoFisica {
-    namespace AvaliacaoFisicaService {
-        const baseUrl = "AvaliacaoFisica/AvaliacaoFisica";
-        function Create(request: Serenity.SaveRequest<AvaliacaoFisicaRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<AvaliacaoFisicaRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AvaliacaoFisicaRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AvaliacaoFisicaRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Create: string;
-            const Update: string;
-            const Delete: string;
-            const Retrieve: string;
-            const List: string;
-        }
-    }
-}
-declare namespace GymAction.AvaliacaoFisica {
-    class AvaliacaoFisicaDialog extends Serenity.EntityDialog<AvaliacaoFisicaRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected getDeletePermission(): string;
-        protected getInsertPermission(): string;
-        protected getUpdatePermission(): string;
-        protected form: AvaliacaoFisicaForm;
-    }
-}
-declare namespace GymAction.AvaliacaoFisica {
-    class AvaliacaoFisicaGrid extends Serenity.EntityGrid<AvaliacaoFisicaRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof AvaliacaoFisicaDialog;
-        protected getIdProperty(): string;
-        protected getInsertPermission(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace GymAction.Plano {
-    class PlanoForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
-    interface PlanoForm {
-        DesNome: Serenity.StringEditor;
-        IdfTipo: Serenity.StringEditor;
-        IdfAivo: Serenity.BooleanEditor;
-    }
-}
-declare namespace GymAction.Plano {
-    interface PlanoRow {
-        CodPlano?: number;
-        DesNome?: string;
-        IdfTipo?: string;
-        IdfAivo?: boolean;
-    }
-    namespace PlanoRow {
-        const idProperty = "CodPlano";
-        const nameProperty = "DesNome";
-        const localTextPrefix = "Plano.Plano";
-        const deletePermission = "Plano:General";
-        const insertPermission = "Plano:General";
-        const readPermission = "Plano:General";
-        const updatePermission = "Plano:General";
-        namespace Fields {
-            const CodPlano: any;
-            const DesNome: any;
-            const IdfTipo: any;
-            const IdfAivo: any;
-        }
-    }
-}
-declare namespace GymAction.Plano {
-    namespace PlanoService {
-        const baseUrl = "Plano/Plano";
-        function Create(request: Serenity.SaveRequest<PlanoRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<PlanoRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<PlanoRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<PlanoRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Create: string;
-            const Update: string;
-            const Delete: string;
-            const Retrieve: string;
-            const List: string;
-        }
     }
 }
 declare namespace GymAction.Plano {
@@ -1414,332 +2218,7 @@ declare namespace GymAction.Plano {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
-    }
-}
-declare namespace GymAction.Aula {
-    class AulaForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
-    interface AulaForm {
-        DesAula: Serenity.StringEditor;
-        IdfTipoAtividade: Serenity.BooleanEditor;
-        IdfAtivo: Serenity.BooleanEditor;
-    }
-}
-declare namespace GymAction.Aula {
-    interface AulaRow {
-        CodAula?: number;
-        DesAula?: string;
-        IdfTipoAtividade?: boolean;
-        IdfAtivo?: boolean;
-    }
-    namespace AulaRow {
-        const idProperty = "CodAula";
-        const nameProperty = "DesAula";
-        const localTextPrefix = "Aula.Aula";
-        const deletePermission = "Aula:General";
-        const insertPermission = "Aula:General";
-        const readPermission = "Aula:General";
-        const updatePermission = "Aula:General";
-        namespace Fields {
-            const CodAula: any;
-            const DesAula: any;
-            const IdfTipoAtividade: any;
-            const IdfAtivo: any;
-        }
-    }
-}
-declare namespace GymAction.Aula {
-    namespace AulaService {
-        const baseUrl = "Aula/Aula";
-        function Create(request: Serenity.SaveRequest<AulaRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<AulaRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AulaRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AulaRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Create: string;
-            const Update: string;
-            const Delete: string;
-            const Retrieve: string;
-            const List: string;
-        }
-    }
-}
-declare namespace GymAction.Aula {
-    class AulaDialog extends Serenity.EntityDialog<AulaRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected getDeletePermission(): string;
-        protected getInsertPermission(): string;
-        protected getUpdatePermission(): string;
-        protected form: AulaForm;
-    }
-}
-declare namespace GymAction.Aula {
-    class AulaGrid extends Serenity.EntityGrid<AulaRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof AulaDialog;
-        protected getIdProperty(): string;
-        protected getInsertPermission(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace GymAction.Instrutor {
-    class InstrutorForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
-    interface InstrutorForm {
-        DesNome: Serenity.StringEditor;
-        DesRg: Serenity.StringEditor;
-        DesCpf: Serenity.StringEditor;
-        IdfTipoAtividade: Serenity.BooleanEditor;
-        IdfAtivo: Serenity.BooleanEditor;
-    }
-}
-declare namespace GymAction.Instrutor {
-    interface InstrutorRow {
-        CodInstrutor?: number;
-        DesNome?: string;
-        DesRg?: string;
-        DesCpf?: string;
-        IdfTipoAtividade?: boolean;
-        IdfAtivo?: boolean;
-    }
-    namespace InstrutorRow {
-        const idProperty = "CodInstrutor";
-        const nameProperty = "DesNome";
-        const localTextPrefix = "Instrutor.Instrutor";
-        const deletePermission = "Instrutor:General";
-        const insertPermission = "Instrutor:General";
-        const readPermission = "Instrutor:General";
-        const updatePermission = "Instrutor:General";
-        namespace Fields {
-            const CodInstrutor: any;
-            const DesNome: any;
-            const DesRg: any;
-            const DesCpf: any;
-            const IdfTipoAtividade: any;
-            const IdfAtivo: any;
-        }
-    }
-}
-declare namespace GymAction.Instrutor {
-    namespace InstrutorService {
-        const baseUrl = "Instrutor/Instrutor";
-        function Create(request: Serenity.SaveRequest<InstrutorRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<InstrutorRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<InstrutorRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<InstrutorRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Create: string;
-            const Update: string;
-            const Delete: string;
-            const Retrieve: string;
-            const List: string;
-        }
-    }
-}
-declare namespace GymAction.Instrutor {
-    class InstrutorDialog extends Serenity.EntityDialog<InstrutorRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected getDeletePermission(): string;
-        protected getInsertPermission(): string;
-        protected getUpdatePermission(): string;
-        protected form: InstrutorForm;
-    }
-}
-declare namespace GymAction.Instrutor {
-    class InstrutorGrid extends Serenity.EntityGrid<InstrutorRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof InstrutorDialog;
-        protected getIdProperty(): string;
-        protected getInsertPermission(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace GymAction.AulaInstrutor {
-    class AulaInstrutorForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
-    interface AulaInstrutorForm {
-        CodInstrutor: Serenity.IntegerEditor;
-        HorInicio: Serenity.StringEditor;
-        HorFim: Serenity.StringEditor;
-        IdfSegunda: Serenity.BooleanEditor;
-        IdfTerca: Serenity.BooleanEditor;
-        IdfQuarta: Serenity.BooleanEditor;
-        IdfQuinta: Serenity.BooleanEditor;
-        IdfSexta: Serenity.BooleanEditor;
-        IdfSabado: Serenity.BooleanEditor;
-        IdfDomingo: Serenity.BooleanEditor;
-        DesSala: Serenity.StringEditor;
-    }
-}
-declare namespace GymAction.AulaInstrutor {
-    interface AulaInstrutorRow {
-        CodAula?: number;
-        CodInstrutor?: number;
-        HorInicio?: string;
-        HorFim?: string;
-        IdfSegunda?: boolean;
-        IdfTerca?: boolean;
-        IdfQuarta?: boolean;
-        IdfQuinta?: boolean;
-        IdfSexta?: boolean;
-        IdfSabado?: boolean;
-        IdfDomingo?: boolean;
-        DesSala?: string;
-        CodAulaDesAula?: string;
-        CodAulaIdfTipoAtividade?: boolean;
-        CodAulaIdfAtivo?: boolean;
-        CodInstrutorDesNome?: string;
-        CodInstrutorDesRg?: string;
-        CodInstrutorDesCpf?: string;
-        CodInstrutorIdfTipoAtividade?: boolean;
-        CodInstrutorIdfAtivo?: boolean;
-    }
-    namespace AulaInstrutorRow {
-        const idProperty = "CodAula";
-        const nameProperty = "HorInicio";
-        const localTextPrefix = "AulaInstrutor.AulaInstrutor";
-        const deletePermission = "AulaInstrutor:General";
-        const insertPermission = "AulaInstrutor:General";
-        const readPermission = "AulaInstrutor:General";
-        const updatePermission = "AulaInstrutor:General";
-        namespace Fields {
-            const CodAula: any;
-            const CodInstrutor: any;
-            const HorInicio: any;
-            const HorFim: any;
-            const IdfSegunda: any;
-            const IdfTerca: any;
-            const IdfQuarta: any;
-            const IdfQuinta: any;
-            const IdfSexta: any;
-            const IdfSabado: any;
-            const IdfDomingo: any;
-            const DesSala: any;
-            const CodAulaDesAula: any;
-            const CodAulaIdfTipoAtividade: any;
-            const CodAulaIdfAtivo: any;
-            const CodInstrutorDesNome: any;
-            const CodInstrutorDesRg: any;
-            const CodInstrutorDesCpf: any;
-            const CodInstrutorIdfTipoAtividade: any;
-            const CodInstrutorIdfAtivo: any;
-        }
-    }
-}
-declare namespace GymAction.AulaInstrutor {
-    namespace AulaInstrutorService {
-        const baseUrl = "AulaInstrutor/AulaInstrutor";
-        function Create(request: Serenity.SaveRequest<AulaInstrutorRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<AulaInstrutorRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AulaInstrutorRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AulaInstrutorRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Create: string;
-            const Update: string;
-            const Delete: string;
-            const Retrieve: string;
-            const List: string;
-        }
-    }
-}
-declare namespace GymAction.AulaInstrutor {
-    class AulaInstrutorDialog extends Serenity.EntityDialog<AulaInstrutorRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected getDeletePermission(): string;
-        protected getInsertPermission(): string;
-        protected getUpdatePermission(): string;
-        protected form: AulaInstrutorForm;
-    }
-}
-declare namespace GymAction.AulaInstrutor {
-    class AulaInstrutorGrid extends Serenity.EntityGrid<AulaInstrutorRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof AulaInstrutorDialog;
-        protected getIdProperty(): string;
-        protected getInsertPermission(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace GymAction.PlanoAula {
-    class PlanoAulaForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
-    interface PlanoAulaForm {
-        CodAula: Serenity.IntegerEditor;
-        VlrAula: Serenity.DecimalEditor;
-    }
-}
-declare namespace GymAction.PlanoAula {
-    interface PlanoAulaRow {
-        CodPlano?: number;
-        CodAula?: number;
-        VlrAula?: number;
-        CodPlanoDesNome?: string;
-        CodPlanoIdfTipo?: string;
-        CodPlanoIdfAivo?: boolean;
-        CodAulaDesAula?: string;
-        CodAulaIdfTipoAtividade?: boolean;
-        CodAulaIdfAtivo?: boolean;
-    }
-    namespace PlanoAulaRow {
-        const idProperty = "CodPlano";
-        const localTextPrefix = "PlanoAula.PlanoAula";
-        const deletePermission = "PlanoAula:General";
-        const insertPermission = "PlanoAula:General";
-        const readPermission = "PlanoAula:General";
-        const updatePermission = "PlanoAula:General";
-        namespace Fields {
-            const CodPlano: any;
-            const CodAula: any;
-            const VlrAula: any;
-            const CodPlanoDesNome: any;
-            const CodPlanoIdfTipo: any;
-            const CodPlanoIdfAivo: any;
-            const CodAulaDesAula: any;
-            const CodAulaIdfTipoAtividade: any;
-            const CodAulaIdfAtivo: any;
-        }
-    }
-}
-declare namespace GymAction.PlanoAula {
-    namespace PlanoAulaService {
-        const baseUrl = "PlanoAula/PlanoAula";
-        function Create(request: Serenity.SaveRequest<PlanoAulaRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<PlanoAulaRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<PlanoAulaRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<PlanoAulaRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Create: string;
-            const Update: string;
-            const Delete: string;
-            const Retrieve: string;
-            const List: string;
-        }
+        getButtons(): Serenity.ToolButton[];
     }
 }
 declare namespace GymAction.PlanoAula {
@@ -1763,179 +2242,7 @@ declare namespace GymAction.PlanoAula {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
-    }
-}
-declare namespace GymAction.ClientePlanoAula {
-    class ClientePlanoAulaForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
-    interface ClientePlanoAulaForm {
-        Aula: Serenity.IntegerEditor;
-        Cliente: Serenity.IntegerEditor;
-    }
-}
-declare namespace GymAction.ClientePlanoAula {
-    interface ClientePlanoAulaRow {
-        Plano?: number;
-        Aula?: number;
-        Cliente?: number;
-        PlanoDesNome?: string;
-        PlanoIdfTipo?: string;
-        PlanoIdfAivo?: boolean;
-        AulaDesAula?: string;
-        AulaIdfTipoAtividade?: boolean;
-        AulaIdfAtivo?: boolean;
-        ClienteCodBiometria?: number;
-        ClienteDesNome?: string;
-        ClienteDesRg?: string;
-        ClienteDesCpf?: string;
-        ClienteIdfAdimplente?: boolean;
-        ClienteIdfAtivo?: boolean;
-        ClienteDesEndereco?: string;
-    }
-    namespace ClientePlanoAulaRow {
-        const idProperty = "Plano";
-        const localTextPrefix = "ClientePlanoAula.ClientePlanoAula";
-        const deletePermission = "ClientePlanoAula:General";
-        const insertPermission = "ClientePlanoAula:General";
-        const readPermission = "ClientePlanoAula:General";
-        const updatePermission = "ClientePlanoAula:General";
-        namespace Fields {
-            const Plano: any;
-            const Aula: any;
-            const Cliente: any;
-            const PlanoDesNome: any;
-            const PlanoIdfTipo: any;
-            const PlanoIdfAivo: any;
-            const AulaDesAula: any;
-            const AulaIdfTipoAtividade: any;
-            const AulaIdfAtivo: any;
-            const ClienteCodBiometria: any;
-            const ClienteDesNome: any;
-            const ClienteDesRg: any;
-            const ClienteDesCpf: any;
-            const ClienteIdfAdimplente: any;
-            const ClienteIdfAtivo: any;
-            const ClienteDesEndereco: any;
-        }
-    }
-}
-declare namespace GymAction.ClientePlanoAula {
-    namespace ClientePlanoAulaService {
-        const baseUrl = "ClientePlanoAula/ClientePlanoAula";
-        function Create(request: Serenity.SaveRequest<ClientePlanoAulaRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<ClientePlanoAulaRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ClientePlanoAulaRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ClientePlanoAulaRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Create: string;
-            const Update: string;
-            const Delete: string;
-            const Retrieve: string;
-            const List: string;
-        }
-    }
-}
-declare namespace GymAction.ClientePlanoAula {
-    class ClientePlanoAulaDialog extends Serenity.EntityDialog<ClientePlanoAulaRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        protected getDeletePermission(): string;
-        protected getInsertPermission(): string;
-        protected getUpdatePermission(): string;
-        protected form: ClientePlanoAulaForm;
-    }
-}
-declare namespace GymAction.ClientePlanoAula {
-    class ClientePlanoAulaGrid extends Serenity.EntityGrid<ClientePlanoAulaRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof ClientePlanoAulaDialog;
-        protected getIdProperty(): string;
-        protected getInsertPermission(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace GymAction.RegistroAula {
-    class RegistroAulaForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
-    interface RegistroAulaForm {
-        CodPlano: Serenity.IntegerEditor;
-        CodAula: Serenity.IntegerEditor;
-        CodCliente: Serenity.IntegerEditor;
-        DatAula: Serenity.DateEditor;
-    }
-}
-declare namespace GymAction.RegistroAula {
-    interface RegistroAulaRow {
-        CodRegistro?: number;
-        CodPlano?: number;
-        CodAula?: number;
-        CodCliente?: number;
-        DatAula?: string;
-        CodPlanoDesNome?: string;
-        CodPlanoIdfTipo?: string;
-        CodPlanoIdfAivo?: boolean;
-        CodAulaDesAula?: string;
-        CodAulaIdfTipoAtividade?: boolean;
-        CodAulaIdfAtivo?: boolean;
-        CodClienteCodBiometria?: number;
-        CodClienteDesNome?: string;
-        CodClienteDesRg?: string;
-        CodClienteDesCpf?: string;
-        CodClienteIdfAdimplente?: boolean;
-        CodClienteIdfAtivo?: boolean;
-        CodClienteDesEndereco?: string;
-    }
-    namespace RegistroAulaRow {
-        const idProperty = "CodRegistro";
-        const localTextPrefix = "RegistroAula.RegistroAula";
-        const deletePermission = "RegistroAula:General";
-        const insertPermission = "RegistroAula:General";
-        const readPermission = "RegistroAula:General";
-        const updatePermission = "RegistroAula:General";
-        namespace Fields {
-            const CodRegistro: any;
-            const CodPlano: any;
-            const CodAula: any;
-            const CodCliente: any;
-            const DatAula: any;
-            const CodPlanoDesNome: any;
-            const CodPlanoIdfTipo: any;
-            const CodPlanoIdfAivo: any;
-            const CodAulaDesAula: any;
-            const CodAulaIdfTipoAtividade: any;
-            const CodAulaIdfAtivo: any;
-            const CodClienteCodBiometria: any;
-            const CodClienteDesNome: any;
-            const CodClienteDesRg: any;
-            const CodClienteDesCpf: any;
-            const CodClienteIdfAdimplente: any;
-            const CodClienteIdfAtivo: any;
-            const CodClienteDesEndereco: any;
-        }
-    }
-}
-declare namespace GymAction.RegistroAula {
-    namespace RegistroAulaService {
-        const baseUrl = "RegistroAula/RegistroAula";
-        function Create(request: Serenity.SaveRequest<RegistroAulaRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<RegistroAulaRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<RegistroAulaRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<RegistroAulaRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Create: string;
-            const Update: string;
-            const Delete: string;
-            const Retrieve: string;
-            const List: string;
-        }
+        getButtons(): Serenity.ToolButton[];
     }
 }
 declare namespace GymAction.RegistroAula {
@@ -1959,259 +2266,6 @@ declare namespace GymAction.RegistroAula {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
-    }
-}
-declare namespace GymAction.Ferias {
-    class FeriasForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
-    interface FeriasForm {
-        CodPlano: Serenity.IntegerEditor;
-        CodAula: Serenity.IntegerEditor;
-        CodCliente: Serenity.IntegerEditor;
-        DatInicio: Serenity.DateEditor;
-        DatFim: Serenity.DateEditor;
-    }
-}
-declare namespace GymAction.Ferias {
-    interface FeriasRow {
-        CodFerias?: number;
-        CodPlano?: number;
-        CodAula?: number;
-        CodCliente?: number;
-        DatInicio?: string;
-        DatFim?: string;
-        CodPlanoDesNome?: string;
-        CodPlanoIdfTipo?: string;
-        CodPlanoIdfAivo?: boolean;
-        CodAulaDesAula?: string;
-        CodAulaIdfTipoAtividade?: boolean;
-        CodAulaIdfAtivo?: boolean;
-        CodClienteCodBiometria?: number;
-        CodClienteDesNome?: string;
-        CodClienteDesRg?: string;
-        CodClienteDesCpf?: string;
-        CodClienteIdfAdimplente?: boolean;
-        CodClienteIdfAtivo?: boolean;
-        CodClienteDesEndereco?: string;
-    }
-    namespace FeriasRow {
-        const idProperty = "CodFerias";
-        const localTextPrefix = "Ferias.Ferias";
-        const deletePermission = "Ferias:General";
-        const insertPermission = "Ferias:General";
-        const readPermission = "Ferias:General";
-        const updatePermission = "Ferias:General";
-        namespace Fields {
-            const CodFerias: any;
-            const CodPlano: any;
-            const CodAula: any;
-            const CodCliente: any;
-            const DatInicio: any;
-            const DatFim: any;
-            const CodPlanoDesNome: any;
-            const CodPlanoIdfTipo: any;
-            const CodPlanoIdfAivo: any;
-            const CodAulaDesAula: any;
-            const CodAulaIdfTipoAtividade: any;
-            const CodAulaIdfAtivo: any;
-            const CodClienteCodBiometria: any;
-            const CodClienteDesNome: any;
-            const CodClienteDesRg: any;
-            const CodClienteDesCpf: any;
-            const CodClienteIdfAdimplente: any;
-            const CodClienteIdfAtivo: any;
-            const CodClienteDesEndereco: any;
-        }
-    }
-}
-declare namespace GymAction.Ferias {
-    namespace FeriasService {
-        const baseUrl = "Ferias/Ferias";
-        function Create(request: Serenity.SaveRequest<FeriasRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<FeriasRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<FeriasRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<FeriasRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Create: string;
-            const Update: string;
-            const Delete: string;
-            const Retrieve: string;
-            const List: string;
-        }
-    }
-}
-declare namespace GymAction.Ferias {
-    class FeriasDialog extends Serenity.EntityDialog<FeriasRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        protected getDeletePermission(): string;
-        protected getInsertPermission(): string;
-        protected getUpdatePermission(): string;
-        protected form: FeriasForm;
-    }
-}
-declare namespace GymAction.Ferias {
-    class FeriasGrid extends Serenity.EntityGrid<FeriasRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof FeriasDialog;
-        protected getIdProperty(): string;
-        protected getInsertPermission(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace GymAction.Pagamento {
-    class PagamentoForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
-    interface PagamentoForm {
-        CodPlano: Serenity.IntegerEditor;
-        CodAula: Serenity.IntegerEditor;
-        CodCliente: Serenity.IntegerEditor;
-        DatVencimento: Serenity.DateEditor;
-        DatPagamento: Serenity.DateEditor;
-        VlrPago: Serenity.DecimalEditor;
-    }
-}
-declare namespace GymAction.Pagamento {
-    interface PagamentoRow {
-        CodPagamento?: number;
-        CodPlano?: number;
-        CodAula?: number;
-        CodCliente?: number;
-        DatVencimento?: string;
-        DatPagamento?: string;
-        VlrPago?: number;
-        CodPlanoDesNome?: string;
-        CodPlanoIdfTipo?: string;
-        CodPlanoIdfAivo?: boolean;
-        CodAulaDesAula?: string;
-        CodAulaIdfTipoAtividade?: boolean;
-        CodAulaIdfAtivo?: boolean;
-        CodClienteCodBiometria?: number;
-        CodClienteDesNome?: string;
-        CodClienteDesRg?: string;
-        CodClienteDesCpf?: string;
-        CodClienteIdfAdimplente?: boolean;
-        CodClienteIdfAtivo?: boolean;
-        CodClienteDesEndereco?: string;
-    }
-    namespace PagamentoRow {
-        const idProperty = "CodPagamento";
-        const localTextPrefix = "Pagamento.Pagamento";
-        const deletePermission = "Pagamento:General";
-        const insertPermission = "Pagamento:General";
-        const readPermission = "Pagamento:General";
-        const updatePermission = "Pagamento:General";
-        namespace Fields {
-            const CodPagamento: any;
-            const CodPlano: any;
-            const CodAula: any;
-            const CodCliente: any;
-            const DatVencimento: any;
-            const DatPagamento: any;
-            const VlrPago: any;
-            const CodPlanoDesNome: any;
-            const CodPlanoIdfTipo: any;
-            const CodPlanoIdfAivo: any;
-            const CodAulaDesAula: any;
-            const CodAulaIdfTipoAtividade: any;
-            const CodAulaIdfAtivo: any;
-            const CodClienteCodBiometria: any;
-            const CodClienteDesNome: any;
-            const CodClienteDesRg: any;
-            const CodClienteDesCpf: any;
-            const CodClienteIdfAdimplente: any;
-            const CodClienteIdfAtivo: any;
-            const CodClienteDesEndereco: any;
-        }
-    }
-}
-declare namespace GymAction.Pagamento {
-    namespace PagamentoService {
-        const baseUrl = "Pagamento/Pagamento";
-        function Create(request: Serenity.SaveRequest<PagamentoRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<PagamentoRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<PagamentoRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<PagamentoRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Create: string;
-            const Update: string;
-            const Delete: string;
-            const Retrieve: string;
-            const List: string;
-        }
-    }
-}
-declare namespace GymAction.Pagamento {
-    class PagamentoDialog extends Serenity.EntityDialog<PagamentoRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        protected getDeletePermission(): string;
-        protected getInsertPermission(): string;
-        protected getUpdatePermission(): string;
-        protected form: PagamentoForm;
-    }
-}
-declare namespace GymAction.Pagamento {
-    class PagamentoGrid extends Serenity.EntityGrid<PagamentoRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof PagamentoDialog;
-        protected getIdProperty(): string;
-        protected getInsertPermission(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace GymAction.Aula {
-}
-declare namespace GymAction.AulaInstrutor {
-}
-declare namespace GymAction.AvaliacaoFisica {
-}
-declare namespace GymAction.Cliente {
-}
-declare namespace GymAction.ClientePlanoAula {
-}
-declare namespace GymAction.Ferias {
-}
-declare namespace GymAction.Fisioterapeuta {
-}
-declare namespace GymAction.Instrutor {
-}
-declare namespace GymAction.Pagamento {
-}
-declare namespace GymAction.Plano {
-}
-declare namespace GymAction.PlanoAula {
-}
-declare namespace GymAction.RegistroAula {
-}
-declare namespace GymAction.Aula {
-    enum AulaTipo {
-        Individual = 1,
-        Grupo = 2
-    }
-}
-declare namespace GymAction.Plano {
-    enum PlanoTipo {
-        Mensal = 0,
-        Anual = 1
-    }
-}
-declare namespace GymAction.Instrutor {
-    enum InstrutorTipo {
-        Individual = 0,
-        Grupo = 1,
-        Todas = 2
+        getButtons(): Serenity.ToolButton[];
     }
 }
