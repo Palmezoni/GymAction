@@ -1,0 +1,90 @@
+{
+  "RootNamespace": "GymAction",
+  "ServerTypings": {
+    "Assemblies": [],
+    "LocalTexts": true
+  },
+  "Connections": [
+    {
+      "Key": "Default",
+      "Tables": [
+        {
+          "Tablename": "dbo.AULA",
+          "Identifier": "Aula",
+          "Module": "Aula",
+          "PermissionKey": "Aula:General"
+        },
+        {
+          "Tablename": "dbo.AULA_INSTRUTOR",
+          "Identifier": "AulaInstrutor",
+          "Module": "AulaInstrutor",
+          "PermissionKey": "AulaInstrutor:General"
+        },
+        {
+          "Tablename": "dbo.AVALIACAO_FISICA",
+          "Identifier": "AvaliacaoFisica",
+          "Module": "AvaliacaoFisica",
+          "PermissionKey": "AvaliacaoFisica:General"
+        },
+        {
+          "Tablename": "dbo.CLIENTE",
+          "Identifier": "Cliente",
+          "Module": "Cliente",
+          "PermissionKey": "Cliente:General"
+        },
+        {
+          "Tablename": "dbo.CLIENTE_PLANO_AULA",
+          "Identifier": "ClientePlanoAula",
+          "Module": "ClientePlanoAula",
+          "PermissionKey": "ClientePlanoAula:General"
+        },
+        {
+          "Tablename": "dbo.FERIAS",
+          "Identifier": "Ferias",
+          "Module": "Ferias",
+          "PermissionKey": "Ferias:General"
+        },
+        {
+          "Tablename": "dbo.FISIOTERAPEUTA",
+          "Identifier": "Fisioterapeuta",
+          "Module": "Fisioterapeuta",
+          "PermissionKey": "Fisioterapeuta:General"
+        },
+        {
+          "Tablename": "dbo.INSTRUTOR",
+          "Identifier": "Instrutor",
+          "Module": "Instrutor",
+          "PermissionKey": "Instrutor:General"
+        },
+        {
+          "Tablename": "dbo.PAGAMENTO",
+          "Identifier": "Pagamento",
+          "Module": "Pagamento",
+          "PermissionKey": "Pagamento:General"
+        },
+        {
+          "Tablename": "dbo.PLANO",
+          "Identifier": "Plano",
+          "Module": "Plano",
+          "PermissionKey": "Plano:General"
+        },
+        {
+          "Tablename": "dbo.PLANO_AULA",
+          "Identifier": "PlanoAula",
+          "Module": "PlanoAula",
+          "PermissionKey": "PlanoAula:General"
+        },
+        {
+          "Tablename": "dbo.REGISTRO_AULA",
+          "Identifier": "RegistroAula",
+          "Module": "RegistroAula",
+          "PermissionKey": "RegistroAula:General"
+        }
+      ]
+    }
+  ],
+  "BaseRowClasses": [],
+  "RemoveForeignFields": [],
+  "CustomGenerate": {},
+  "CustomSettings": {}
+}
